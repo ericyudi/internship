@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane fx:id="painel" dividerPositions="0.8570110701107011" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="1320.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLTelaQuitarVendasController">
+   <items>
+      <VBox prefHeight="485.0" prefWidth="1127.0">
+         <children>
+            <HBox prefHeight="47.0" prefWidth="728.0" spacing="40.0" style="-fx-background-color: #e4ddda; -fx-border-color: #384e73; -fx-border-width: 3;" styleClass="#9a7036">
+               <children>
+                  <JFXTextField fx:id="txPesquisa" focusColor="#384e73" onKeyTyped="#clkTxPesquisa" prefHeight="29.0" prefWidth="199.0" promptText="Informe o descricao da venda" unFocusColor="#384e73" />
+                  <JFXComboBox fx:id="cbFiltro" focusColor="#384e73" prefHeight="29.0" prefWidth="218.0" promptText="Filtrar" unFocusColor="#384e73" />
+                  <JFXButton contentDisplay="CENTER" onAction="#clkBtProcurar" prefHeight="0.0" prefWidth="100.0" text="Procurar" textFill="#384e73">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#c3d0e0" />
+                              <Stop color="#243551" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </HBox>
+            <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="406.0" prefWidth="728.0">
+               <columns>
+                  <TableColumn fx:id="colcod" prefWidth="48.000030517578125" text="Código" />
+                  <TableColumn fx:id="colcliente" prefWidth="184.0" text="Cliente" />
+                  <TableColumn fx:id="coldesc" prefWidth="179.0" text="Descrição" />
+                  <TableColumn fx:id="colvalorT" prefWidth="68.0" text="Valor Total" />
+                  <TableColumn fx:id="colvalorP" prefWidth="70.0" text="Valor Pago" />
+                  <TableColumn fx:id="coldtinicial" prefWidth="106.0" text="Data de criação" />
+                  <TableColumn fx:id="colpagamento" prefWidth="124.0" text="Data de Pagamento" />
+                  <TableColumn fx:id="colfiado" prefWidth="75.0" text="Fiado?" />
+                  <TableColumn fx:id="colquit" prefWidth="271.0" text="Conta quitada?" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox prefHeight="565.0" prefWidth="264.0">
+         <children>
+            <AnchorPane prefHeight="565.0" prefWidth="266.0">
+               <children>
+                  <JFXButton fx:id="btpagar" contentDisplay="CENTER" layoutY="50.0" onAction="#clkBtPagar" onMouseEntered="#btnNovoEntrou" onMouseExited="#btnNovoSaiu" prefHeight="50.0" prefWidth="185.0" text="Pagar" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>

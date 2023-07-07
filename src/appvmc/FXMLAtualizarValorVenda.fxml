@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane fx:id="painel" dividerPositions="0.7704026115342764" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="921.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLAtualizarValorVendaController">
+   <items>
+      <VBox prefHeight="531.0" prefWidth="728.0">
+         <children>
+            <AnchorPane fx:id="pnDados" prefHeight="120.0" prefWidth="728.0">
+               <children>
+                  <HBox layoutX="-4.0" layoutY="120.0" prefHeight="46.0" prefWidth="640.0" spacing="40.0" style="-fx-background-color: #e4ddda; -fx-border-color: #384e73; -fx-border-width: 3;" styleClass="#9a7036">
+                     <children>
+                        <JFXTextField fx:id="txPesquisa" focusColor="#384e73" onKeyTyped="#clkTxPesquisa" prefHeight="30.0" prefWidth="374.0" promptText="Informe a informação desejado de acordo com o filtro -&gt;" unFocusColor="#384e73">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="cbfiltro" promptText="Filtro" />
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#clkBtProcurar" prefHeight="21.0" prefWidth="100.0" text="Procurar" textFill="#384e73">
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                                 <stops>
+                                    <Stop color="#c3d0e0" />
+                                    <Stop color="#243551" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets left="60.0" />
+                     </padding>
+                  </HBox>
+                  <Label layoutX="333.0" layoutY="43.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="txCod" labelFloat="true" layoutX="14.0" layoutY="58.0" prefHeight="29.0" prefWidth="66.0" promptText="Código" unFocusColor="#8d6123" />
+                  <JFXTextField fx:id="txvalor" labelFloat="true" layoutX="99.0" layoutY="54.0" prefHeight="29.0" prefWidth="180.0" promptText="Valor " unFocusColor="#8d6123" />
+                  <JFXComboBox fx:id="cbtipo" layoutX="284.0" layoutY="60.0" prefHeight="25.0" prefWidth="53.0" promptText="\%" />
+                  <Label layoutX="275.0" layoutY="41.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="408.0" prefWidth="582.0">
+               <columns>
+                  <TableColumn fx:id="colcod" prefWidth="73.0" text="Código" />
+                  <TableColumn fx:id="colnome" prefWidth="110.0" text="Nome" />
+                  <TableColumn fx:id="colmarca" prefWidth="95.0" text="Marca" />
+                  <TableColumn fx:id="coltamanho" prefWidth="70.0" text="Tamanho" />
+                  <TableColumn fx:id="colvalorvenda" prefWidth="106.0" text="Valor Venda" />
+                  <TableColumn fx:id="colvalorcompra" prefWidth="106.0" text="Valor Compra" />
+                  <TableColumn fx:id="colcor" prefWidth="141.0" text="Cor" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox prefHeight="374.0" prefWidth="208.0">
+         <children>
+            <AnchorPane prefHeight="536.0" prefWidth="208.0">
+               <children>
+                  <JFXButton fx:id="btAlterar" contentDisplay="CENTER" layoutX="12.0" layoutY="74.0" onAction="#clkBtAlterar" onMouseEntered="#btnNovoEntrou" onMouseExited="#btnNovoSaiu" prefHeight="51.0" prefWidth="171.0" text="Alterar" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>

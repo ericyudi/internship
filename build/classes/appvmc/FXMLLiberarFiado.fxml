@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane fx:id="painel" dividerPositions="0.853923853923854" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="1289.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLLiberarFiadoController">
+   <items>
+      <VBox prefHeight="545.0" prefWidth="1096.0">
+         <children>
+            <AnchorPane fx:id="pnDados" prefHeight="58.0" prefWidth="1096.0">
+               <children>
+                  <JFXTextField fx:id="txCod" focusColor="#384e73" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="56.0" promptText="Código" unFocusColor="#8d6123" />
+                  <Label layoutX="227.0" layoutY="4.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="txlimite" focusColor="#384e73" labelFloat="true" layoutX="96.0" layoutY="14.0" prefHeight="29.0" prefWidth="131.0" promptText="Limite Liberado" unFocusColor="#8d6123" />
+                  <JFXComboBox fx:id="cbstatus" focusColor="#384e73" labelFloat="true" layoutX="254.0" layoutY="16.0" promptText="Status" />
+                  <Label layoutX="329.0" layoutY="4.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <HBox prefHeight="44.0" prefWidth="1083.0" spacing="40.0" style="-fx-background-color: #e4ddda #e4ddda; -fx-border-color: #384e73; -fx-border-width: 3;" styleClass="#9a7036">
+               <children>
+                  <JFXTextField fx:id="txPesquisa" focusColor="#384e73" onKeyTyped="#clkTxPesquisa" prefHeight="29.0" prefWidth="293.0" promptText="Informe o desejado e escolha o filtro" unFocusColor="#384e73" />
+                  <JFXComboBox fx:id="cbfiltro" focusColor="#384e73" prefHeight="29.0" prefWidth="140.0" unFocusColor="#384e73" />
+                  <JFXButton contentDisplay="CENTER" onAction="#clkBtProcurar" prefHeight="0.0" prefWidth="100.0" text="Procurar" textFill="#384e73">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#c3d0e0" />
+                              <Stop color="#c3d0e0" offset="0.007662835249042145" />
+                              <Stop color="#243551" offset="0.9961685823754789" />
+                              <Stop color="#243551" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </HBox>
+            <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="405.0" prefWidth="1110.0">
+               <columns>
+                  <TableColumn fx:id="colcod" prefWidth="73.0" text="Código" />
+                  <TableColumn fx:id="colnome" prefWidth="313.0" text="Nome" />
+                  <TableColumn fx:id="colCPF" prefWidth="125.0" text="CPF" />
+                  <TableColumn fx:id="coltelefone" prefWidth="102.0" text="Telefone" />
+                  <TableColumn fx:id="colrg" prefWidth="90.0" text="RG" />
+                  <TableColumn fx:id="colendereco" prefWidth="181.0" text="Endereço" />
+                  <TableColumn fx:id="colnumero" prefWidth="72.0" text="Número" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox prefHeight="565.0" prefWidth="287.0">
+         <children>
+            <AnchorPane prefHeight="565.0" prefWidth="185.0">
+               <children>
+                  <JFXButton fx:id="btliberar" contentDisplay="CENTER" layoutX="26.0" layoutY="56.0" onAction="#clkBtLiberar" onMouseEntered="#btnNovoEntrou" onMouseExited="#btnNovoSaiu" prefHeight="50.0" prefWidth="131.0" text="Liberar" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>

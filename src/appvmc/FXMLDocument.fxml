@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="pnprincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1329.0" style="-fx-background-postion: center ceter;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLDocumentController">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar fx:id="menu">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Cadastros">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#clkCadCliente" text="Cliente" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkCadCalcados" text="Calçados" />
+                        <MenuItem fx:id="menu_funcionario" mnemonicParsing="false" onAction="#clkCadFuncionario" text="Funcionario" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkCadTPConta" text="Tipos de Contas" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkMarcas" text="Marca de Calçados" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Cadastros avançados">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#clkDespesa" text="Despesa" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkCadConta" text="Contas" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Configurações">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#clkConfEmpresa" text="Empresa" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Conta">
+                     <items>
+                        <MenuItem fx:id="mGerencia" mnemonicParsing="false" onAction="#clkGerenciaConta" text="Gerenciar contas" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkContSair" text="Sair da conta" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <Label fx:id="lblWelcome">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </items>
+            </ToolBar>
+            <Text fx:id="txnome" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="1261.13671875">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #554879;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

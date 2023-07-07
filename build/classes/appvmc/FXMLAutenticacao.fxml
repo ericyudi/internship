@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="pnprincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLAutenticacaoController">
+   <center>
+      <AnchorPane prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextField fx:id="txLogin" focusColor="#00af89" layoutX="124.0" layoutY="115.0" onKeyPressed="#loginkeyenter" prefHeight="25.0" prefWidth="374.0" promptText="Login" unFocusColor="#384e73">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="txSenha" focusColor="#00af89" layoutX="124.0" layoutY="180.0" onKeyPressed="#loginkeyenter" prefHeight="43.0" prefWidth="374.0" promptText="Senha" unFocusColor="#384e73">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </JFXPasswordField>
+            <Label layoutX="235.0" layoutY="22.0" prefHeight="73.0" prefWidth="166.0" style="-fx-font-family: open sans;" text="Login" textFill="#274355">
+               <font>
+                  <Font name="System Bold" size="50.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="311.0" layoutY="95.0" startX="-100.0" stroke="#384e73" strokeWidth="4.0" />
+            <JFXButton fx:id="btnLogar" layoutX="109.0" layoutY="313.0" onAction="#clkLogar" onMouseEntered="#btnLogarEntrou" onMouseExited="#btnLogarSaiu" prefHeight="62.0" prefWidth="190.0" style="-fx-border-color: black; -fx-border-radius: 3;" text="Logar" translateY="-20.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="lblAut" layoutX="204.0" layoutY="252.0" text="Login ou Senha Incorretos!" textFill="#e34963">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnCancelar" layoutX="337.0" layoutY="293.0" onAction="#clkCancelar" onMouseEntered="#btnCancelarEntrou" onMouseExited="#btnCancelarSaiu" prefHeight="62.0" prefWidth="190.0" style="-fx-border-color: black; -fx-border-radius: 3;" text="Cancelar">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="502.0" layoutY="115.0" text="*" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="502.0" layoutY="180.0" text="*" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="177.0" layoutY="370.0" text="OBS: o simbolo    significa que o preenchimento da caixa deve ser obrigatório." textFill="#828282">
+               <font>
+                  <Font name="System Bold Italic" size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="257.0" layoutY="368.0" text="*" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </center>
+</BorderPane>
