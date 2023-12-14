@@ -41,6 +41,15 @@ public class DALEstoque {
         boolean flag = con.manipular(sql);
         return flag;
     }
+             public boolean alteraqntd(estoque e)
+    {
+        String sql = "update estoque set qntd=#2"
+                + " where cod_estoque="+e.getCod()+"";
+        sql = sql.replaceAll("#2", ""+e.getQntd());
+        Singleton con = Singleton.getConexao();
+        boolean flag = con.manipular(sql);
+        return flag;
+    }
  /*   public estoque get(int cod) {
         Marca aux = null;
         ResultSet rs = Banco.getCon().consultar("select * from marca where cod=" + cod);
@@ -58,6 +67,64 @@ public class DALEstoque {
         String sql="select * from estoque";
         if(!filtro.isEmpty())
             sql+=" where "+filtro+" order by tam";
+        List <estoque> aux = new ArrayList();
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql);   
+        try 
+        {
+            while(rs.next())
+            {
+                aux.add(new estoque(rs.getInt("cod_estoque"),new DALCalcados().get(rs.getInt("cod_cal")),rs.getInt("tam"),rs.getInt("qntd")));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        
+        return aux;
+    }
+               public estoque getcomcod(int coder)
+    {
+        estoque aux=null;
+        String sql="select * from estoque where cod_estoque="+coder;
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql);   
+        try 
+        {
+            if (rs.next()) {
+                aux = new estoque(rs.getInt("cod_estoque"),new DALCalcados().get(rs.getInt("cod_cal")),rs.getInt("tam"),rs.getInt("qntd"));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        
+        return aux;
+    }
+               public estoque getcomcodcal_vetamanho(int coder, int tamanho)
+    {
+        estoque aux=null;
+        String sql="select * from estoque where cod_cal="+coder+" and tam="+tamanho;
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql);   
+        try 
+        {
+            if (rs.next()) {
+                aux = new estoque(rs.getInt("cod_estoque"),new DALCalcados().get(rs.getInt("cod_cal")),rs.getInt("tam"),rs.getInt("qntd"));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        
+        return aux;
+    }
+           public List<estoque> get2()
+    {
+        String sql="select * from estoque as e inner join calcado as c on c.cod = e.cod_cal";
         List <estoque> aux = new ArrayList();
         Singleton con = Singleton.getConexao();
         ResultSet rs = con.consultar(sql);   
@@ -120,5 +187,18 @@ public class DALEstoque {
         Singleton con = Singleton.getConexao();
         boolean flag = con.manipular(sql);
         return flag;
+    }
+        public int getultimoest() {
+        int aux = 0;
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar("select MAX(cod_estoque) from estoque");
+        try {
+            if (rs.next()) {
+                aux = rs.getInt("max");
+            }
+        } catch (SQLException ex) {
+
+        }
+        return aux;
     }
 }

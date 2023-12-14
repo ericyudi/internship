@@ -39,6 +39,11 @@ public class tipoconta {
 
     }
     private int cod;
+
+    @Override
+    public String toString() {
+        return nome;
+    }
     private String nome;
     
         public boolean gravar() {
@@ -64,6 +69,10 @@ public class tipoconta {
         public tipoconta get() {
         DALtipoconta dal = new DALtipoconta();
         return dal.get(cod);
+    }
+        public tipoconta gettp(String nome) {
+        DALtipoconta dal = new DALtipoconta();
+        return dal.gettp(nome);
     }
         public boolean apagar() {
         DALtipoconta dal = new DALtipoconta();

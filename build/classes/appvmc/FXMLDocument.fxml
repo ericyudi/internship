@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,9 +10,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="pnprincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1329.0" style="-fx-background-postion: center ceter;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLDocumentController">
+<BorderPane fx:id="pnprincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLDocumentController">
    <top>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,15 +29,41 @@
                   <Menu mnemonicParsing="false" text="Cadastros avançados">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#clkDespesa" text="Despesa" />
-                        <MenuItem mnemonicParsing="false" onAction="#clkCadConta" text="Contas" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkCadEntradaProd" text="Entrada de Produtos" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkCadVenda" text="Vendas" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkLibFiado" text="Liberar Fiado" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkBloqFiado" text="Bloquear Fiado" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkatualizavalorvenda" text="Atualizar valor de venda" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Pagamentos">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#clikpagvendas" text="Vendas" />
+                        <MenuItem mnemonicParsing="false" onAction="#clikpagdespesa" text="Despesas" />
+                        <MenuItem mnemonicParsing="false" onAction="#clikpagfiado" text="Fiado" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Relatórios">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#relatoriovenda" text="Vendas" />
+                        <MenuItem mnemonicParsing="false" onAction="#relatoriocalcado" text="Calçados" />
+                        <MenuItem mnemonicParsing="false" onAction="#relatoriodespesa" text="Despesas" />
+                        <MenuItem mnemonicParsing="false" onAction="#relatoriocliente" text="Clientes" />
+                        <MenuItem mnemonicParsing="false" onAction="#relatoriofiado" text="Fiado" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Configurações">
                      <items>
+                        <MenuItem mnemonicParsing="false" onAction="#backup" text="Backup" />
+                        <MenuItem mnemonicParsing="false" onAction="#restore" text="Restore" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Configurações" visible="false">
+                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#clkConfEmpresa" text="Empresa" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Conta">
+                  <Menu mnemonicParsing="false" text="Conta" visible="false">
                      <items>
                         <MenuItem fx:id="mGerencia" mnemonicParsing="false" onAction="#clkGerenciaConta" text="Gerenciar contas" />
                         <MenuItem mnemonicParsing="false" onAction="#clkContSair" text="Sair da conta" />
@@ -52,17 +78,20 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
+                  <Button fx:id="bthelp" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#bthelpaction" text="?" />
                </items>
             </ToolBar>
-            <Text fx:id="txnome" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="1261.13671875">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Text>
          </children>
       </VBox>
    </top>
    <bottom>
-      <HBox alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #554879;" BorderPane.alignment="CENTER" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="1329.0" style="-fx-background-color: #554879;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="textarea" prefHeight="27.0" prefWidth="170.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></HBox>
    </bottom>
 </BorderPane>

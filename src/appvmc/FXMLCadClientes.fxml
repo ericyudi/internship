@@ -28,11 +28,6 @@
                             </font>
                         </Label>
                         <JFXTextField fx:id="txNome" focusColor="#384e73" labelFloat="true" layoutX="96.0" layoutY="14.0" prefHeight="29.0" prefWidth="313.0" promptText="Nome" unFocusColor="#8d6123" />
-                        <Label layoutX="800.0" layoutY="62.0" text="*" textFill="RED">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Label>
                         <JFXTextField fx:id="txCpf" focusColor="#384e73" labelFloat="true" layoutX="428.0" layoutY="14.0" prefHeight="29.0" prefWidth="185.0" promptText="CPF" unFocusColor="#8d6123" />
                         <Label layoutX="617.0" layoutY="2.0" text="*" textFill="RED">
                             <font>
@@ -40,54 +35,19 @@
                             </font>
                         </Label>
                         <JFXTextField fx:id="txtelefone" focusColor="#384e73" labelFloat="true" layoutX="651.0" layoutY="14.0" prefHeight="29.0" prefWidth="122.0" promptText="Telefone" unFocusColor="#8d6123" />
-                        <Label layoutX="769.0" layoutY="2.0" text="*" textFill="RED">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Label>
+                  <JFXTextField fx:id="txemail" focusColor="#384e73" labelFloat="true" layoutX="795.0" layoutY="17.0" prefHeight="29.0" prefWidth="140.0" promptText="Email" unFocusColor="#8d6123" />
+                  <JFXTextField fx:id="txrg" focusColor="#384e73" labelFloat="true" layoutX="943.0" layoutY="17.0" prefHeight="29.0" prefWidth="130.0" promptText="RG" unFocusColor="#8d6123" />
                         <JFXComboBox fx:id="cbuf" focusColor="#384e73" labelFloat="true" layoutX="8.0" layoutY="80.0" promptText="UF" />
                         <JFXTextField fx:id="txcidade" focusColor="#384e73" labelFloat="true" layoutX="96.0" layoutY="78.0" prefHeight="29.0" prefWidth="158.0" promptText="Cidade" unFocusColor="#8d6123" />
                         <JFXTextField fx:id="txcep" focusColor="#384e73" labelFloat="true" layoutX="274.0" layoutY="77.0" prefHeight="29.0" prefWidth="68.0" promptText="CEP" unFocusColor="#8d6123" />
                         <JFXTextField fx:id="txbairro" focusColor="#384e73" labelFloat="true" layoutX="362.0" layoutY="74.0" prefHeight="29.0" prefWidth="214.0" promptText="Bairro" unFocusColor="#8d6123" />
                         <JFXTextField fx:id="txend" focusColor="#384e73" labelFloat="true" layoutX="596.0" layoutY="77.0" prefHeight="29.0" prefWidth="208.0" promptText="Endereço" unFocusColor="#8d6123" />
-                        <Label layoutX="572.0" layoutY="57.0" text="*" textFill="RED">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="342.0" layoutY="57.0" text="*" textFill="RED">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Label>
                         <JFXTextField fx:id="txnumero" focusColor="#384e73" labelFloat="true" layoutX="820.0" layoutY="77.0" prefHeight="29.0" prefWidth="56.0" promptText="Número" unFocusColor="#8d6123" />
-                        <Label layoutX="872.0" layoutY="60.0" text="*" textFill="RED">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Label>
                         <Label layoutX="248.0" layoutY="66.0" text="*" textFill="RED">
                             <font>
                                 <Font size="21.0" />
                             </font>
                         </Label>
-                        <Label layoutX="67.0" layoutY="65.0" text="*" textFill="RED">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Label>
-                  <JFXTextField fx:id="txemail" focusColor="#384e73" labelFloat="true" layoutX="795.0" layoutY="17.0" prefHeight="29.0" prefWidth="140.0" promptText="Email" unFocusColor="#8d6123" />
-                  <Label layoutX="926.0" layoutY="2.0" text="*" textFill="RED">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField fx:id="txrg" focusColor="#384e73" labelFloat="true" layoutX="943.0" layoutY="17.0" prefHeight="29.0" prefWidth="130.0" promptText="RG" unFocusColor="#8d6123" />
-                  <Label layoutX="1062.0" layoutY="4.0" text="*" textFill="RED">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
                   <JFXTextField fx:id="txfiado" focusColor="#384e73" labelFloat="true" layoutX="898.0" layoutY="74.0" prefHeight="29.0" prefWidth="110.0" unFocusColor="#8d6123" />
                   <Label layoutX="898.0" layoutY="62.0" prefHeight="17.0" prefWidth="110.0" text="Limite de fiado" />
                   <JFXComboBox fx:id="cbfiado" layoutX="1021.0" layoutY="80.0" onAction="#mudafiado" />
@@ -131,19 +91,20 @@
                 <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="405.0" prefWidth="1110.0">
                     <columns>
                         <TableColumn fx:id="colcod" prefWidth="47.000030517578125" text="Código" />
-                        <TableColumn fx:id="colnome" prefWidth="130.0" text="Nome" />
+                        <TableColumn fx:id="colnome" prefWidth="118.0" text="Nome" />
                         <TableColumn fx:id="colCPF" prefWidth="72.0" text="CPF" />
-                        <TableColumn fx:id="coltelefone" prefWidth="67.0" text="Telefone" />
-                  <TableColumn fx:id="colemail" prefWidth="101.0" text="Email" />
-                  <TableColumn fx:id="colrg" prefWidth="56.0" text="RG" />
-                  <TableColumn fx:id="coluf" prefWidth="26.0" text="UF" />
-                  <TableColumn fx:id="colbairro" prefWidth="111.0" text="Bairro" />
-                  <TableColumn fx:id="colcidade" prefWidth="99.0" text="Cidade" />
-                  <TableColumn fx:id="colcep" prefWidth="65.0" text="CEP" />
-                  <TableColumn fx:id="colendereco" prefWidth="144.0" text="Endereço" />
-                  <TableColumn fx:id="colnumero" prefWidth="58.0" text="Número" />
-                  <TableColumn fx:id="colfiado" prefWidth="73.0" text="Fiado" />
-                  <TableColumn fx:id="colvalfiado" maxWidth="255.0" prefWidth="72.0" text="Valor Fiado" />
+                        <TableColumn fx:id="coltelefone" prefWidth="55.0" text="Telefone" />
+                  <TableColumn fx:id="colemail" prefWidth="88.0" text="Email" />
+                  <TableColumn fx:id="colrg" prefWidth="71.0" text="RG" />
+                  <TableColumn fx:id="coluf" prefWidth="24.0" text="UF" />
+                  <TableColumn fx:id="colbairro" prefWidth="113.0" text="Bairro" />
+                  <TableColumn fx:id="colcidade" prefWidth="81.0" text="Cidade" />
+                  <TableColumn fx:id="colcep" prefWidth="98.0" text="CEP" />
+                  <TableColumn fx:id="colendereco" prefWidth="87.0" text="Endereço" />
+                  <TableColumn fx:id="colnumero" prefWidth="53.0" text="Número" />
+                  <TableColumn fx:id="colfiado" prefWidth="42.0" text="Fiado" />
+                  <TableColumn fx:id="colvalfiado" maxWidth="255.0" prefWidth="83.0" text="Limite Fiado" />
+                  <TableColumn fx:id="colsaldofiado" maxWidth="255.0" prefWidth="88.0" text="Saldo Fiado" />
                     </columns>
                 </TableView>
             </children>

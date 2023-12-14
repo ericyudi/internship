@@ -4,6 +4,8 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="painel" dividerPositions="0.8570110701107011" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="1320.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLTelaQuitarVendasController">
+<SplitPane fx:id="painel" dividerPositions="0.8763277693474962" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="1320.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLTelaQuitarVendasController">
    <items>
       <VBox prefHeight="485.0" prefWidth="1127.0">
          <children>
@@ -43,23 +45,31 @@
             <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="406.0" prefWidth="728.0">
                <columns>
                   <TableColumn fx:id="colcod" prefWidth="48.000030517578125" text="Código" />
-                  <TableColumn fx:id="colcliente" prefWidth="184.0" text="Cliente" />
-                  <TableColumn fx:id="coldesc" prefWidth="179.0" text="Descrição" />
-                  <TableColumn fx:id="colvalorT" prefWidth="68.0" text="Valor Total" />
-                  <TableColumn fx:id="colvalorP" prefWidth="70.0" text="Valor Pago" />
-                  <TableColumn fx:id="coldtinicial" prefWidth="106.0" text="Data de criação" />
-                  <TableColumn fx:id="colpagamento" prefWidth="124.0" text="Data de Pagamento" />
-                  <TableColumn fx:id="colfiado" prefWidth="75.0" text="Fiado?" />
-                  <TableColumn fx:id="colquit" prefWidth="271.0" text="Conta quitada?" />
+                  <TableColumn fx:id="colcliente" prefWidth="233.0" text="Cliente" />
+                  <TableColumn fx:id="colvalorT" prefWidth="81.0" text="Valor Total" />
+                  <TableColumn fx:id="coldtinicial" prefWidth="115.0" text="Data de criação" />
+                  <TableColumn fx:id="colfiado" prefWidth="74.0" text="Fiado?" />
+                  <TableColumn fx:id="colquit" prefWidth="97.0" text="Conta quitada?" />
+                  <TableColumn fx:id="coldtquit" prefWidth="112.0" text="Data de Quitação" />
+                  <TableColumn fx:id="coldesc" prefWidth="169.0" text="Descrição" />
+                  <TableColumn fx:id="colcoment" prefWidth="221.0" text="Comentários" />
                </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#clkpagamento" text="Pagamento" />
+                        <MenuItem mnemonicParsing="false" onAction="#clkitensvenda" text="Itens da Venda" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
             </TableView>
          </children>
       </VBox>
-      <VBox prefHeight="565.0" prefWidth="264.0">
+      <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <AnchorPane prefHeight="565.0" prefWidth="266.0">
+            <AnchorPane prefHeight="452.0" prefWidth="573.0">
                <children>
-                  <JFXButton fx:id="btpagar" contentDisplay="CENTER" layoutY="50.0" onAction="#clkBtPagar" onMouseEntered="#btnNovoEntrou" onMouseExited="#btnNovoSaiu" prefHeight="50.0" prefWidth="185.0" text="Pagar" textFill="#726554">
+                  <JFXButton fx:id="btCancelar" contentDisplay="CENTER" layoutX="6.0" layoutY="66.0" onAction="#clkBtCancelar" onMouseEntered="#btnCancelarEntrou" onMouseExited="#btnCancelarSaiu" prefHeight="50.0" prefWidth="149.0" text="Cancelar" textFill="#726554">
                      <ripplerFill>
                         <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
                            <stops>
@@ -69,7 +79,7 @@
                         </LinearGradient>
                      </ripplerFill>
                      <font>
-                        <Font name="System Bold" size="26.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </JFXButton>
                </children>

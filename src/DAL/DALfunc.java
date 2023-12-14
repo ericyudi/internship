@@ -7,6 +7,7 @@ package DAL;
 
 import DB.Banco;
 import DB.Singleton;
+import Entidades.Calcados;
 import Entidades.cliente;
 import Entidades.funcionario;
 import java.sql.ResultSet;
@@ -151,7 +152,37 @@ public class DALfunc {
         
         return aux;
     }
-    
+            public funcionario get(int cod)
+    {
+        funcionario aux = null;
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar("select * from funcionario where cod_func="+cod);
+        try 
+        {
+            while(rs.next())
+            {
+                 if (rs.getDate("data_desat") != null){
+                aux = new funcionario(rs.getInt("cod_func"),rs.getString("nome"), rs.getString("estadocivil"),rs.getString("cpf"),
+                    rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getString("telefone"), rs.getString("permissao"),rs.getString("ativo").charAt(0),rs.getString("senha")
+                ,rs.getString("login"),rs.getDate("data_desat").toLocalDate(),rs.getString("cep"),rs.getString("email"));
+                 }
+                 else
+                 {
+                                     aux = new funcionario(rs.getInt("cod_func"),rs.getString("nome"), rs.getString("estadocivil"),rs.getString("cpf"),
+                    rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getString("telefone"), rs.getString("permissao"),rs.getString("ativo").charAt(0),rs.getString("senha")
+                ,rs.getString("login"),null,rs.getString("cep"),rs.getString("email"));
+                 }
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        
+        return aux;
+    }
     public String buscasenha(int cod) {
         String aux="";
         String sql = "select senha from funcionario where cod_func="+cod;

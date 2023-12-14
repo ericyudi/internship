@@ -26,73 +26,83 @@
                   <JFXTextField fx:id="txdespnome" labelFloat="true" layoutX="86.0" layoutY="21.0" prefHeight="29.0" prefWidth="305.0" promptText="Nome da conta" unFocusColor="#8d6123" />
                   <JFXTextField fx:id="txDesc" labelFloat="true" layoutX="404.0" layoutY="21.0" prefHeight="29.0" prefWidth="419.0" promptText="Descrição da conta" unFocusColor="#8d6123" />
                   <JFXComboBox fx:id="cbtipo" labelFloat="true" layoutX="839.0" layoutY="23.0" prefHeight="29.0" prefWidth="121.0" promptText="Tipo de Conta" unFocusColor="#8d6123" />
-                  <JFXComboBox fx:id="cbstatus" labelFloat="true" layoutX="987.0" layoutY="23.0" prefHeight="29.0" prefWidth="121.0" promptText="Status" unFocusColor="#8d6123" />
+                  <JFXComboBox fx:id="cbstatus" labelFloat="true" layoutX="968.0" layoutY="70.0" prefHeight="29.0" prefWidth="133.0" promptText="Status" unFocusColor="#8d6123" />
                   <JFXTextField fx:id="txValor" labelFloat="true" layoutX="14.0" layoutY="68.0" prefHeight="29.0" prefWidth="156.0" promptText="Valor Total" unFocusColor="#8d6123" />
-                  <JFXTextField fx:id="txparc" labelFloat="true" layoutX="201.0" layoutY="70.0" prefHeight="29.0" prefWidth="110.0" unFocusColor="#8d6123" />
-                  <JFXDatePicker fx:id="dtvencimento" defaultColor="#384e73" layoutX="345.0" layoutY="70.0" onAction="#clkdtvencimento" prefHeight="29.0" prefWidth="199.0" promptText="Data de Vencimento" />
-                  <JFXDatePicker fx:id="dtdia" defaultColor="#384e73" layoutX="757.0" layoutY="67.0" prefHeight="29.0" prefWidth="174.0" promptText="Dia da Conta" />
+                  <JFXTextField fx:id="txparc" labelFloat="true" layoutX="201.0" layoutY="70.0" prefHeight="29.0" prefWidth="156.0" promptText="Número de parcelas" unFocusColor="#8d6123" />
+                  <JFXDatePicker fx:id="dtvencimento" defaultColor="#384e73" layoutX="434.0" layoutY="71.0" onAction="#clkdtvencimento" prefHeight="29.0" prefWidth="199.0" promptText="Data de Vencimento" />
                   <Label layoutX="387.0" layoutY="8.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="166.0" layoutY="53.0" text="*" textFill="RED">
+                  <Label layoutX="175.0" layoutY="67.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="314.0" layoutY="47.0" text="*" textFill="RED">
+                  <Label layoutX="367.0" layoutY="69.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="819.0" layoutY="6.0" text="*" textFill="RED">
+                  <Label layoutX="969.0" layoutY="20.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="198.0" layoutY="57.0" text="Número de parcelas">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="956.0" layoutY="6.0" text="*" textFill="RED">
+                  <Label layoutX="1101.0" layoutY="64.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="1109.0" layoutY="4.0" text="*" textFill="RED">
+                  <Label fx:id="lbstatus" layoutX="960.0" layoutY="50.0" text="Status não selecionado!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXDatePicker fx:id="dtdiainicial" defaultColor="#384e73" layoutX="708.0" layoutY="71.0" prefHeight="29.0" prefWidth="174.0" promptText="Data inicial da conta" />
+                  <Label layoutX="895.0" layoutY="67.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="927.0" layoutY="48.0" text="*" textFill="RED">
+                  <Label fx:id="lbnome" layoutX="87.0" layoutY="2.0" prefHeight="0.0" prefWidth="143.0" text="Nome não digitado!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbtpconta" layoutX="839.0" layoutY="2.0" text="Tipo de conta não selecionado" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbvrtotal" layoutX="8.0" layoutY="54.0" text="Valor Total não digitado" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbparcelas" layoutX="195.0" layoutY="54.0" prefHeight="25.0" prefWidth="184.0" text="Parcelas não digitadas" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbdtinicial" layoutX="703.0" layoutY="56.0" prefHeight="25.0" prefWidth="246.0" text="Data Inicial maior do que hoje!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbdtvenc" layoutX="393.0" layoutY="56.0" prefHeight="25.0" prefWidth="283.0" text="Data de vencimento menor do que hoje!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="633.0" layoutY="66.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
                      </font>
-                  </Label> 
-                  <Label layoutX="757.0" layoutY="53.0" text="Dia da Conta">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
                   </Label>
-                  <Label layoutX="345.0" layoutY="53.0" text="Data de Vencimento">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField fx:id="txpessoa" labelFloat="true" layoutX="942.0" layoutY="66.0" prefHeight="29.0" prefWidth="166.0" promptText="Pessoa Relacionada a conta" unFocusColor="#8d6123" />
-                  <JFXDatePicker fx:id="dtdiainicial" defaultColor="#384e73" layoutX="556.0" layoutY="71.0" prefHeight="29.0" prefWidth="174.0" promptText="Dia da Conta" />
-                  <Label layoutX="726.0" layoutY="52.0" text="*" textFill="RED">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="556.0" layoutY="57.0" text="Data inicial da conta">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
+                  <Label fx:id="lbvencinicio" layoutX="434.0" layoutY="54.0" prefHeight="17.0" prefWidth="133.0" text="Data de Vencimento" />
+                  <Label fx:id="lbinicioinicio" layoutX="708.0" layoutY="54.0" prefHeight="17.0" prefWidth="133.0" text="Data Inicial" />
                </children>
             </AnchorPane>
             <HBox prefHeight="47.0" prefWidth="728.0" spacing="40.0" style="-fx-background-color: #e4ddda; -fx-border-color: #384e73; -fx-border-width: 3;" styleClass="#9a7036">
@@ -122,14 +132,13 @@
                   <TableColumn fx:id="colcod" prefWidth="48.000030517578125" text="Código" />
                   <TableColumn fx:id="colnome" prefWidth="161.0" text="Nome" />
                   <TableColumn fx:id="coldesc" prefWidth="164.0" text="Descrição" />
-                  <TableColumn fx:id="colvalor" prefWidth="48.0" text="Valor" />
-                  <TableColumn fx:id="colparc" prefWidth="59.0" text="Parcelas" />
-                  <TableColumn fx:id="colpagamento" prefWidth="119.0" text="Data de Pagamento" />
-                  <TableColumn fx:id="coldtinicial" prefWidth="84.0" text="Data inicial" />
-                  <TableColumn fx:id="coldtcriacao" prefWidth="96.0" text="Data de criação" />
-                  <TableColumn fx:id="coltipo" prefWidth="114.0" text="Tipo de Conta" />
-                  <TableColumn fx:id="colstatus" prefWidth="75.0" text="Status" />
-                  <TableColumn fx:id="colpessoarel" prefWidth="157.0" text="Pessoa Relacionada" />
+                  <TableColumn fx:id="colvalor" prefWidth="99.0" text="Valor" />
+                  <TableColumn fx:id="coldtinicial" prefWidth="92.0" text="Data inicial" />
+                  <TableColumn fx:id="coldtvenc" prefWidth="130.0" text="Data de Vencimento" />
+                  <TableColumn fx:id="coltipo" prefWidth="98.0" text="Tipo de Conta" />
+                  <TableColumn fx:id="colstatus" prefWidth="79.0" text="Conta Paga?" />
+                  <TableColumn fx:id="colpessoarel" prefWidth="121.0" text="Pessoa Relacionada" />
+                  <TableColumn fx:id="colentradacod" prefWidth="133.0" text="Código Entrada" />
                </columns>
             </TableView>
          </children>

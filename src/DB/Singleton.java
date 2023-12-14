@@ -5,11 +5,15 @@
  */
 package DB;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,6 +50,24 @@ public class Singleton {
         System.out.println(erro);
     }
 
+        public static void realizaBackupRestauracao(String arqlot) {
+        String reslinha = "";
+        Runtime r = Runtime.getRuntime();
+        try {
+            Process p = r.exec(arqlot);//("bdutil\backup.bat");<---backup
+            if (p != null) {
+                InputStreamReader str = new InputStreamReader(p.getErrorStream());
+                BufferedReader reader = new BufferedReader(str);
+                String linha;
+                while ((linha = reader.readLine()) != null) {
+                    reslinha+=linha+"\n";
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Backup/restore realizado com sucesso!\n"+reslinha);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Erro no backup/restore!\n" + ex.getMessage());
+        }
+    }
     public static Singleton getConexao(){
         if(conexao == null){
             conexao = new Singleton();

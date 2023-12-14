@@ -38,6 +38,7 @@
                      </font>
                   </Label>
                   <JFXTextField fx:id="txcodesp" focusColor="#384e73" labelFloat="true" layoutX="308.0" layoutY="14.0" prefHeight="29.0" prefWidth="110.0" promptText="Código Especifico" unFocusColor="#8d6123" />
+                  <JFXTextField fx:id="txcores" focusColor="#384e73" labelFloat="true" layoutX="433.0" layoutY="14.0" prefHeight="29.0" prefWidth="123.0" promptText="Cores" unFocusColor="#8d6123" />
                   <Label layoutX="414.0" layoutY="2.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />
@@ -57,7 +58,6 @@
                      </font>
                   </Label>
                   <JFXComboBox fx:id="cbgenero" layoutX="462.0" layoutY="84.0" promptText="Genero" />
-                  <JFXTextField fx:id="txcores" focusColor="#384e73" labelFloat="true" layoutX="433.0" layoutY="14.0" prefHeight="29.0" prefWidth="123.0" promptText="Cores" unFocusColor="#8d6123" />
                   <Label layoutX="544.0" layoutY="4.0" text="*" textFill="RED">
                      <font>
                         <Font size="21.0" />

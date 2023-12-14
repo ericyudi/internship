@@ -79,9 +79,28 @@ public class estoque {
         }
         return false;
     }
+        public boolean alteraqntd() {
+        DALEstoque dal = new DALEstoque();
+        if (dal.alteraqntd(this)) {
+            return true;
+        }
+        return false;
+    }
             public List<estoque> get(String filtro) {
         DALEstoque dal = new DALEstoque();
         return dal.get(filtro);
+    }
+            public estoque getcomcod(int coder) {
+        DALEstoque dal = new DALEstoque();
+        return dal.getcomcod(coder);
+    }
+            public estoque getcomcodcal_vetamanho(int cod_cal,int tamanho) {
+        DALEstoque dal = new DALEstoque();
+        return dal.getcomcodcal_vetamanho(cod_cal,tamanho);
+    }
+            public List<estoque> get2() {
+        DALEstoque dal = new DALEstoque();
+        return dal.get2();
     }
         public boolean apagar() {
         DALEstoque dal = new DALEstoque();
@@ -100,5 +119,9 @@ public class estoque {
             return true;
         }
         return false;
+    }
+                public int getultimoest() {
+        DALEstoque dal = new DALEstoque();
+        return dal.getultimoest();
     }
 }

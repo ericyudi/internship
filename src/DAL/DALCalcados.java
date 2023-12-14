@@ -9,7 +9,9 @@ import DB.Banco;
 import DB.Singleton;
 import Entidades.Calcados;
 import Entidades.Marca;
+import Entidades.TudoTeste;
 import Entidades.cliente;
+import Entidades.estoque;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -55,6 +57,15 @@ public class DALCalcados {
         boolean flag = con.manipular(sql);
         return flag;
     }
+         public boolean atualizavalorvenda(Calcados c)
+    {
+        String sql = "update calcado set valorvenda=#4"
+                + " where codespe='"+c.getCodesp()+"'";
+        sql = sql.replaceAll("#4", ""+c.getValorvenda());
+        Singleton con = Singleton.getConexao();
+        boolean flag = con.manipular(sql);
+        return flag;
+    }
 
             
     public List<Calcados> get(String filtro)
@@ -81,11 +92,83 @@ public class DALCalcados {
         
         return aux;
     }
+        public List<TudoTeste> getItensVenda(int filtro)
+    {
+        String sql="select c.codespe,c.nome,c.genero,e.tam,iv.qntd,iv.vr_unit from itens_venda as iv inner join "
+                + "estoque as e on e.cod_estoque = iv.cod_estoque inner join "
+                + "calcado as c on c.cod = e.cod_cal where iv.cod_venda="+filtro;
+        List <TudoTeste> aux = new ArrayList();
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql);    
+        try 
+        {
+            while(rs.next())
+            {
+                aux.add(new TudoTeste(rs.getDouble("vr_unit"),
+                        rs.getString("nome"), rs.getString("codespe"),
+                    rs.getString("genero"),
+                        rs.getInt("tam"),rs.getInt("qntd")));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        
+        return aux;
+    }
+    public List<TudoTeste> get2(String filtro)
+    {
+        String sql="select * from calcado as c inner join estoque as e on c.cod = e.cod_cal where e.qntd > 0";
+        if(!filtro.isEmpty())
+            sql+=" and "+filtro;
+        List <TudoTeste> aux = new ArrayList();
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql);    
+        try 
+        {
+            while(rs.next())
+            {
+                aux.add(new TudoTeste(rs.getInt("cod"), rs.getDouble("valorcompra"),rs.getDouble("valorvenda"),
+                        rs.getString("nome"), rs.getString("codespe"),
+                    rs.getString("cores"),rs.getString("genero"),new DALMarca().get(rs.getInt("cod_marca")),rs.getInt("cod_estoque"),
+                        new DALCalcados().get(rs.getInt("cod_cal")),rs.getInt("tam"),rs.getInt("qntd")));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        
+        return aux;
+    }
         public Calcados get(int cod)
     {
         Calcados aux = null;
         Singleton con = Singleton.getConexao();
         ResultSet rs = con.consultar("select * from calcado where cod="+cod);
+        try 
+        {
+            while(rs.next())
+            {
+                aux = new Calcados(rs.getInt("cod"), rs.getDouble("valorcompra"),rs.getDouble("valorvenda"),
+                        rs.getString("nome"), rs.getString("codespe"),
+                    rs.getString("cores"),rs.getString("genero"),new DALMarca().get(rs.getInt("cod_marca")));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        
+        return aux;
+    }
+        public Calcados getcomcodesp(String cod)
+    {
+        Calcados aux = null;
+        Singleton con = Singleton.getConexao();
+        String sql = "select * from calcado where codespe='"+cod+"'";
+        ResultSet rs = con.consultar(sql);
         try 
         {
             while(rs.next())

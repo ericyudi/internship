@@ -16,6 +16,11 @@ import java.util.List;
  */
 public class funcionario {
     private int cod_func;
+
+    @Override
+    public String toString() {
+        return nome;
+    }
     private String nome;
     private String estadocivil;
     private String cpf;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>MyReports</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>net.sf.jasperreports.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>net.sf.jasperreports.nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Relatorio_Contas_Pagas.jasper</name>
+			<type>1</type>
+			<location>D:/Programação/Outros projetos da facul/pi2 do enzo/projeto 4.0/Projeto/MyReports/Relatorio_Contas_Pagas.jasper</location>
+		</link>
+		<link>
+			<name>Relatorio_Contas_Pagas_1.jasper</name>
+			<type>1</type>
+			<location>D:/Programação/Outros projetos da facul/pi2 do enzo/projeto 4.0/Projeto/MyReports/Relatorio_Contas_Pagas.jasper</location>
+		</link>
+		<link>
+			<name>teste.jasper</name>
+			<type>1</type>
+			<location>D:/Programação/Programa enzo estagio/LojaToninho/relatorios/MyReports/teste.jasper</location>
+		</link>
+		<link>
+			<name>teste_1.jasper</name>
+			<type>1</type>
+			<location>D:/Programação/Programa enzo estagio/LojaToninho/relatorios/MyReports/teste.jasper</location>
+		</link>
+	</linkedResources>
+</projectDescription>

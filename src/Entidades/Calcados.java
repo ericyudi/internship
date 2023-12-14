@@ -6,6 +6,7 @@
 package Entidades;
 
 import DAL.DALCalcados;
+import DAL.DALEstoque;
 import DAL.DALMarca;
 import java.time.LocalDate;
 import java.util.List;
@@ -100,12 +101,14 @@ public class Calcados {
     @Override
     public String toString() {
         return nome;
-    }
-    private String nome;
+    }    
+    
     private String codesp;
+    private String nome;
     private String cores;
     private String genero;
     private Marca MarcaCal;
+    
 
     public boolean gravar() {
         DALCalcados dal = new DALCalcados();
@@ -122,9 +125,24 @@ public class Calcados {
         }
         return false;
     }
+        public boolean atualizavalorvenda() {
+        DALCalcados dal = new DALCalcados();
+        if (dal.atualizavalorvenda(this)) {
+            return true;
+        }
+        return false;
+    }
         public List<Calcados> get(String filtro) {
         DALCalcados dal = new DALCalcados();
         return dal.get(filtro);
+    }
+       /* public List<TudoTeste> get2() {
+        DALCalcados dal = new DALCalcados();
+        return dal.get2();
+    }*/
+        public Calcados getcomcodesp(String coder) {
+        DALCalcados dal = new DALCalcados();
+        return dal.getcomcodesp(coder);
     }
         public boolean apagar() {
         DALCalcados dal = new DALCalcados();

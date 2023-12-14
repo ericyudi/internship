@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane fx:id="painel" dividerPositions="0.7532210109018831" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="933.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLQuitarFiadoController">
+   <items>
+      <VBox prefHeight="531.0" prefWidth="728.0">
+         <children>
+            <AnchorPane fx:id="pnDados" prefHeight="120.0" prefWidth="728.0">
+               <children>
+                  <HBox layoutX="-4.0" layoutY="120.0" prefHeight="46.0" prefWidth="757.0" spacing="40.0" style="-fx-background-color: #e4ddda; -fx-border-color: #384e73; -fx-border-width: 3;" styleClass="#9a7036">
+                     <children>
+                        <JFXTextField fx:id="txPesquisa" focusColor="#384e73" onKeyTyped="#clkTxPesquisa" prefHeight="30.0" prefWidth="362.0" promptText="Informe a informação desejado de acordo com o filtro -&gt;" unFocusColor="#384e73">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="cbfiltro" promptText="Filtro" />
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#clkBtProcurar" prefHeight="21.0" prefWidth="100.0" text="Procurar" textFill="#384e73">
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                                 <stops>
+                                    <Stop color="#c3d0e0" />
+                                    <Stop color="#243551" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets left="60.0" />
+                     </padding>
+                  </HBox>
+                  <Label layoutX="535.0" layoutY="41.0" prefHeight="31.0" prefWidth="9.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="txCod" labelFloat="true" layoutX="14.0" layoutY="50.0" prefHeight="29.0" prefWidth="66.0" promptText="Código" unFocusColor="#8d6123" />
+                  <JFXTextField fx:id="txvalor" labelFloat="true" layoutX="359.0" layoutY="54.0" prefHeight="29.0" prefWidth="180.0" promptText="Valor " unFocusColor="#8d6123" />
+                  <JFXTextField fx:id="txvalorres" disable="true" labelFloat="true" layoutX="586.0" layoutY="54.0" prefHeight="31.0" prefWidth="171.0" promptText="Valor restante:" unFocusColor="#8d6123">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="306.0" layoutY="35.0" prefHeight="31.0" prefWidth="16.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <JFXDatePicker fx:id="dtpag" layoutX="143.0" layoutY="56.0" promptText="Data de Pagamento" />
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="408.0" prefWidth="582.0" style="-fx-font-size: 17;">
+               <columns>
+                  <TableColumn fx:id="colcod" prefWidth="138.0" text="Código" />
+                  <TableColumn fx:id="colvalorpago" prefWidth="306.0" text="Valor Pago" />
+                  <TableColumn fx:id="coldtpag" prefWidth="312.0" text="Data de Pagamento" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <AnchorPane prefHeight="590.0" prefWidth="164.0">
+               <children>
+                  <JFXButton fx:id="btNovo" contentDisplay="CENTER" layoutX="34.0" layoutY="112.0" onAction="#clkBtNovo" onMouseEntered="#btnNovoEntrou" onMouseExited="#btnNovoSaiu" prefHeight="50.0" prefWidth="100.0" text="Novo" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btApagar" contentDisplay="CENTER" layoutX="23.0" layoutY="198.0" onAction="#clkBtApagar" onMouseEntered="#btnApagarEntrou" onMouseExited="#btnApagarSaiu" prefHeight="50.0" prefWidth="122.0" text="Estornar" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btConfirmar" contentDisplay="CENTER" layoutX="14.0" layoutY="290.0" onAction="#clkBtConfirmar" onMouseEntered="#btnConfirmarEntrou" onMouseExited="#btnConfirmarSaiu" prefHeight="50.0" prefWidth="140.0" text="Confirmar" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btCancelar" contentDisplay="CENTER" layoutX="29.0" layoutY="383.0" onAction="#clkBtCancelar" onMouseEntered="#btnCancelarEntrou" onMouseExited="#btnCancelarSaiu" prefHeight="50.0" prefWidth="110.0" text="Cancelar" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btquitar" contentDisplay="CENTER" layoutX="9.0" layoutY="29.0" onAction="#clkquitaragr" onMouseEntered="#btnQuitarEntrou" onMouseExited="#btnQuitarSaiu" prefHeight="67.0" prefWidth="151.0" text="Quitar Agora" textFill="#726554">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.49523809523809526" startY="0.1714285714285714">
+                           <stops>
+                              <Stop color="#eee7e3" />
+                              <Stop color="#dabcad" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>

@@ -7,6 +7,7 @@ package DAL;
 
 import DB.Banco;
 import DB.Singleton;
+import Entidades.Marca;
 import Entidades.cliente;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,6 +35,10 @@ public class DALClientes {
         sql = sql.replaceAll("#8", ""+c.getCep());
         sql = sql.replaceAll("#9", ""+c.getBairro());
         sql = sql.replaceAll("#a", ""+c.getEndereco());
+        if(c.getNumero()==0)
+            sql = sql.replaceAll("#b", "null");
+        else
+            sql = sql.replaceAll("#b", ""+c.getNumero());
         sql = sql.replaceAll("#b", ""+c.getNumero());
         sql = sql.replaceAll("#c", ""+c.getLim_fiado());
         sql = sql.replaceAll("#d", ""+c.getFiado());
@@ -54,7 +59,10 @@ public class DALClientes {
         sql = sql.replaceAll("#8", ""+c.getCep());
         sql = sql.replaceAll("#9", ""+c.getBairro());
         sql = sql.replaceAll("#a", ""+c.getEndereco());
-        sql = sql.replaceAll("#b", ""+c.getNumero());
+        if(c.getNumero()==0)
+            sql = sql.replaceAll("#b", "null");
+        else
+            sql = sql.replaceAll("#b", ""+c.getNumero());
         sql = sql.replaceAll("#c", ""+c.getLim_fiado());
         sql = sql.replaceAll("#d", ""+c.getFiado());
         sql = sql.replaceAll("#e", ""+c.getSaldofiado());
@@ -82,7 +90,10 @@ public class DALClientes {
         sql = sql.replaceAll("#8", ""+c.getCep());
         sql = sql.replaceAll("#9", ""+c.getBairro());
         sql = sql.replaceAll("#a", ""+c.getEndereco());
-        sql = sql.replaceAll("#b", ""+c.getNumero());
+        if(c.getNumero()==0)
+            sql = sql.replaceAll("#b", "null");
+        else
+            sql = sql.replaceAll("#b", ""+c.getNumero());
         }
         else{
                     sql= "update cliente set nome='#1',cpf='#2',telefone='#3',email='#4',rg='#5',uf='#6',cidade='#7',cep='#8',"
@@ -98,8 +109,57 @@ public class DALClientes {
         sql = sql.replaceAll("#8", ""+c.getCep());
         sql = sql.replaceAll("#9", ""+c.getBairro());
         sql = sql.replaceAll("#a", ""+c.getEndereco());
-        sql = sql.replaceAll("#b", ""+c.getNumero());
+        if(c.getNumero()==0)
+            sql = sql.replaceAll("#b", "null");
+        else
+            sql = sql.replaceAll("#b", ""+c.getNumero());
         }
+        Singleton con = Singleton.getConexao();
+        boolean flag = con.manipular(sql);
+        return flag;
+    }
+     public boolean alterarfiado(cliente c)
+    {
+        String sql;
+        sql= "update cliente set saldofiado=#1"
+                + " where cod_cliente="+c.getCod();
+        sql = sql.replaceAll("#1", ""+c.getSaldofiado());
+        Singleton con = Singleton.getConexao();
+        boolean flag = con.manipular(sql);
+        return flag;
+    }
+          public boolean alterarLibFiado(cliente c)
+    {
+        String sql;
+        sql= "update cliente set fiado='#1',limitefiado=#2,saldofiado=#3,databloqueio=NULL"
+                + " where cod_cliente="+c.getCod();
+        sql = sql.replaceAll("#1", ""+c.getFiado());
+        sql = sql.replaceAll("#2", ""+c.getLim_fiado());
+        sql = sql.replaceAll("#3", ""+c.getSaldofiado());
+        Singleton con = Singleton.getConexao();
+        boolean flag = con.manipular(sql);
+        return flag;
+    }
+          public boolean alterarBloqFiado(cliente c)
+    {
+        String sql;
+        sql= "update cliente set fiado='#1',limitefiado=#2,saldofiado=#3,databloqueio='#4',motivobloq='#5'"
+                + " where cod_cliente="+c.getCod();
+        sql = sql.replaceAll("#1", ""+c.getFiado());
+        sql = sql.replaceAll("#2", ""+c.getLim_fiado());
+        sql = sql.replaceAll("#3", ""+c.getSaldofiado());
+        sql = sql.replaceAll("#4", ""+c.getDatabloqueio());
+        sql = sql.replaceAll("#5", ""+c.getMotivo());
+        Singleton con = Singleton.getConexao();
+        boolean flag = con.manipular(sql);
+        return flag;
+    }
+          public boolean alterarLimitFiado(cliente c)
+    {
+        String sql;
+        sql= "update cliente set limitefiado=#2"
+                + " where cod_cliente="+c.getCod();
+        sql = sql.replaceAll("#2", ""+c.getLim_fiado());
         Singleton con = Singleton.getConexao();
         boolean flag = con.manipular(sql);
         return flag;
@@ -120,13 +180,13 @@ public class DALClientes {
                 if (rs.getDate("databloqueio") != null){
                 aux.add(new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
                     rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
-                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),rs.getDate("databloqueio").toLocalDate()));
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),rs.getDate("databloqueio").toLocalDate(),rs.getString("motivobloq")));
                 }
                 else
                 {
                     aux.add(new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
                     rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
-                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),null));
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),null,rs.getString("motivobloq")));
                 }
             }
         } 
@@ -137,6 +197,95 @@ public class DALClientes {
         
         return aux;
     }
+         public cliente get(int cod)
+    {
+        cliente aux = null;
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar("select * from cliente where cod_cliente="+cod);
+        try 
+        {
+            if(rs.next())
+            {
+                if (rs.getDate("databloqueio") != null){
+                aux = new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
+                    rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),rs.getDate("databloqueio").toLocalDate()
+                ,rs.getString("motivobloq"));
+                }
+                else
+                {
+                    aux = new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
+                    rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),null,rs.getString("motivobloq"));
+                }
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        return aux;
+    } 
+         public cliente getcomcpf(String filtro)
+    {
+        cliente aux = null;
+        String sql = "select * from cliente where cpf='"+filtro+"'";
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql);
+        try 
+        {
+            if(rs.next())
+            {
+                if (rs.getDate("databloqueio") != null){
+                aux = new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
+                    rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),rs.getDate("databloqueio").toLocalDate()
+                ,rs.getString("motivobloq"));
+                }
+                else
+                {
+                    aux = new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
+                    rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),null,rs.getString("motivobloq"));
+                }
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        return aux;
+    } 
+         public cliente getcomnome(String filtro)
+    {
+        cliente aux = null;
+        String sql = "select * from cliente where upper(nome) like '%"+filtro+"%'";
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql);
+        try 
+        {
+            if(rs.next())
+            {
+                if (rs.getDate("databloqueio") != null){
+                aux = new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
+                    rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),rs.getDate("databloqueio").toLocalDate()
+                ,rs.getString("motivobloq"));
+                }
+                else
+                {
+                    aux = new cliente(rs.getInt("cod_cliente"),rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"),
+                    rs.getString("email"),rs.getString("rg"),rs.getString("uf"),rs.getString("cidade"),rs.getString("cep"),rs.getString("bairro"),
+                rs.getString("endereco"),rs.getInt("numero"),rs.getDouble("limitefiado"),rs.getString("fiado").charAt(0),rs.getDouble("saldofiado"),null,rs.getString("motivobloq"));
+                }
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        return aux;
+    } 
         public double buscasaldo(int cod) {
         double aux=0;
         String sql = "select saldofiado from cliente where cod_cliente="+cod;

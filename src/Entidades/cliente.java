@@ -129,7 +129,7 @@ public class cliente {
     }
 
     public cliente(int cod, String nome, String cpf, String telefone, String email, String rg,
-            String uf, String cidade, String cep, String bairro, String endereco, int numero, double lim_fiado, char fiado,double saldofiado ,LocalDate databloqueio) {
+            String uf, String cidade, String cep, String bairro, String endereco, int numero, double lim_fiado, char fiado,double saldofiado ,LocalDate databloqueio, String motivo) {
         this.cod = cod;
         this.nome = nome;
         this.cpf = cpf;
@@ -146,11 +146,17 @@ public class cliente {
         this.fiado = fiado;
         this.saldofiado = saldofiado;
         this.databloqueio = databloqueio;
+        this.motivo = motivo;
     }
         public cliente() {
 
     }
     public int cod;
+
+    @Override
+    public String toString() {
+        return nome;
+    }
     public String nome;
     public String cpf;
     public String telefone;
@@ -164,6 +170,15 @@ public class cliente {
     public int numero;
     public double lim_fiado;
     public char fiado;
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+    public String motivo;
 
     public double getSaldofiado() {
         return saldofiado;
@@ -199,9 +214,28 @@ public class cliente {
         }
         return false;
     }
+    public boolean alterafiado() {
+        DALClientes dal = new DALClientes();
+        if (dal.alterarfiado(this)) {
+            return true;
+        }
+        return false;
+    }
         public List<cliente> get(String filtro) {
         DALClientes dal = new DALClientes();
         return dal.get(filtro);
+    }
+        public cliente get(int cod) {
+        DALClientes dal = new DALClientes();
+        return dal.get(cod);
+    }
+        public cliente getcomcpf(String filtro) {
+        DALClientes dal = new DALClientes();
+        return dal.getcomcpf(filtro);
+    }
+        public cliente getcomnome(String filtro) {
+        DALClientes dal = new DALClientes();
+        return dal.getcomnome(filtro);
     }
         public double buscasaldo() {
         DALClientes dal = new DALClientes();
@@ -211,4 +245,19 @@ public class cliente {
         DALClientes dal = new DALClientes();
         return dal.apagar(this);
     }
+        public boolean alterarLibFiado()
+        {
+        DALClientes dal = new DALClientes();
+        return dal.alterarLibFiado(this);
+        }
+        public boolean alterarBloqFiado()
+        {
+        DALClientes dal = new DALClientes();
+        return dal.alterarBloqFiado(this);
+        }
+        public boolean alterarLimitFiado()
+        {
+        DALClientes dal = new DALClientes();
+        return dal.alterarLimitFiado(this);
+        }
 }

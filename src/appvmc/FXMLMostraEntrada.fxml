@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<SplitPane fx:id="painel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="251.0" prefWidth="1011.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLMostraEntradaController">
+   <items>
+      <VBox prefHeight="471.0" prefWidth="768.0">
+         <children>
+            <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="249.0" prefWidth="983.0" style="-fx-font-size: 16; -fx-alignment: center;">
+               <columns>
+                  <TableColumn fx:id="colcod" prefWidth="69.0" text="Código" />
+                  <TableColumn fx:id="colforn" prefWidth="156.0" text="Fornecedor" />
+                  <TableColumn fx:id="coldtcompra" prefWidth="204.0" text="Data da Compra" />
+                  <TableColumn fx:id="colmtpaga" prefWidth="186.0" text="Metodo de pagamento" />
+                  <TableColumn fx:id="colnotafr" prefWidth="186.0" text="Nota fiscal" />
+                  <TableColumn fx:id="colqntdparc" prefWidth="186.0" text="Parcelas" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>

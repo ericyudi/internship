@@ -80,6 +80,25 @@ public class DALtipoconta {
         }
         return aux;
     }   
+            public tipoconta gettp(String cod)
+    {
+        tipoconta aux = null;
+        String sql = "select * from tipoconta where nome='"+cod+"'";
+        Singleton con = Singleton.getConexao();
+        ResultSet rs = con.consultar(sql); 
+        try 
+        {
+            if(rs.next())
+            {
+                aux = new tipoconta(rs.getInt("cod"),rs.getString("nome"));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            
+        }
+        return aux;
+    }   
        
         public boolean apagar(tipoconta m)
     {

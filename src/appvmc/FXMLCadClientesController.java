@@ -125,6 +125,8 @@ public class FXMLCadClientesController implements Initializable {
         private double valantigo =0;
         private double saldoantigo = 0;
         private String erro="";
+    @FXML
+    private TableColumn<cliente, Double> colsaldofiado;
     /**
      * Initializes the controller class.
      */
@@ -145,10 +147,11 @@ public class FXMLCadClientesController implements Initializable {
         colbairro.setCellValueFactory(new PropertyValueFactory("bairro"));
         colcidade.setCellValueFactory(new PropertyValueFactory("cidade"));
         colcep.setCellValueFactory(new PropertyValueFactory("cep"));
+        colsaldofiado.setCellValueFactory(new PropertyValueFactory("saldofiado"));
 
         estadoOriginal();
         cbfiado.getSelectionModel().select(0);
-        cbuf.getSelectionModel().select(24);
+        //cbuf.getSelectionModel().select(24);
         mudafiadoinicio();
     }
         private boolean isCPF(String CPF) {
@@ -447,10 +450,10 @@ public class FXMLCadClientesController implements Initializable {
     }
     private boolean verifica() {
         String str = txCpf.getText().replaceAll("[^a-zA-Z0-9]", "");
-        if (!txend.getText().isEmpty() && !txCpf.getText().isEmpty() && isCPF(str) && !txNome.getText().isEmpty() && !txrg.getText().isEmpty() && !txbairro.getText().isEmpty()
-                && !txcep.getText().isEmpty() && !txcidade.getText().isEmpty() && !txemail.getText().isEmpty() && 
-                !txnumero.getText().isEmpty() && !txtelefone.getText().isEmpty() && !txfiado.getText().isEmpty() && 
-                cbfiado.getSelectionModel().getSelectedIndex() != -1 && cbuf.getSelectionModel().getSelectedIndex() != -1) {
+        if (!txCpf.getText().isEmpty() && isCPF(str) && !txNome.getText().isEmpty()
+                && !txcidade.getText().isEmpty() && 
+                !txfiado.getText().isEmpty() && 
+                cbfiado.getSelectionModel().getSelectedIndex() != -1 ) {
             return true;
         }
                 erro="";
@@ -460,24 +463,8 @@ public class FXMLCadClientesController implements Initializable {
                 erro+="CPF!\n";
             if(!isCPF(str))
                 erro+="CPF INVALIDO!\n";
-            if(txtelefone.getText().isEmpty())
-                erro+="Telefone!\n";
-            if(txemail.getText().isEmpty())
-                erro+="email!\n";
-            if(txrg.getText().isEmpty())
-                erro+="RG!\n";
-            if(cbuf.getSelectionModel().getSelectedIndex() == -1)
-                erro+="Seleção de Estado(UF)!\n";
             if(txcidade.getText().isEmpty())
                 erro+="Cidade!\n";
-            if(txcep.getText().isEmpty())
-                erro+="CEP!\n";
-            if(txbairro.getText().isEmpty())
-                erro+="Bairro!\n";
-            if(txend.getText().isEmpty())
-                erro+="Endereço!\n";
-            if(txnumero.getText().isEmpty())
-                erro+="Numero da casa!\n";
             if(txfiado.getText().isEmpty())
                 erro+="Limite de fiado!\n";
             if(cbfiado.getSelectionModel().getSelectedIndex() == -1)
@@ -503,9 +490,13 @@ public class FXMLCadClientesController implements Initializable {
                 cod = 0;
             }
             cliente c = new cliente(cod, txNome.getText(), 
-                    txCpf.getText(),txtelefone.getText(),txemail.getText(),txrg.getText(),cbuf.getValue(),txcidade.getText(),txcep.getText(), 
-                    txbairro.getText(),txend.getText(), Integer.parseInt(txnumero.getText()),
-                    Double.parseDouble(txfiado.getText().replace(",", ".")),'f',Double.parseDouble(txfiado.getText().replace(",", ".")), horahj);
+                    txCpf.getText(),txtelefone.getText(),txemail.getText(),txrg.getText(),"",txcidade.getText(),txcep.getText(), 
+                    txbairro.getText(),txend.getText(), 0,
+                    Double.parseDouble(txfiado.getText().replace(".","").replace(",", ".")),'f',Double.parseDouble(txfiado.getText().replace(".","").replace(",", ".")), horahj,"");
+            if(!txnumero.getText().isEmpty())
+                c.setNumero(Integer.parseInt(txnumero.getText()));
+            if(cbuf.getSelectionModel().getSelectedIndex() != -1)
+                c.setUf(cbuf.getValue());
             if(cbfiado.getValue().toUpperCase().charAt(0) == 'L'){
                 c.setFiado('S');
                 c.setDatabloqueio(null);

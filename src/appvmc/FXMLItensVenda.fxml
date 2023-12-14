@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane fx:id="painel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="770.0" style="-fx-background-color: #fbf5f2;" stylesheets="@css/jfoenix-components.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appvmc.FXMLItensVendaController">
+   <items>
+      <VBox prefHeight="533.0" prefWidth="768.0">
+         <children>
+            <AnchorPane fx:id="pnDados" prefHeight="113.0" prefWidth="1089.0">
+               <children>
+                  <Label fx:id="labelnome" layoutX="33.0" layoutY="14.0" prefHeight="21.0" prefWidth="213.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelcod" layoutX="294.0" layoutY="14.0" prefHeight="21.0" prefWidth="213.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbvalor" layoutX="33.0" layoutY="48.0" prefHeight="36.0" prefWidth="298.0" text="Valor Total: ">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font></Label>
+                  <Label fx:id="lbdatavenda" layoutX="355.0" layoutY="48.0" prefHeight="36.0" prefWidth="392.0" text="Data da Venda: ">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tabela" onMouseClicked="#clkTabela" prefHeight="405.0" prefWidth="1110.0" style="-fx-font-size: 16; -fx-alignment: center;">
+               <columns>
+                  <TableColumn fx:id="colcod" prefWidth="139.0" text="Código Especifico" />
+                  <TableColumn fx:id="colnome" prefWidth="122.0" text="Calçado" />
+                  <TableColumn fx:id="coltam" prefWidth="123.0" text="Tamanho" />
+                  <TableColumn fx:id="colqntd" prefWidth="145.0" text="Quantidade" />
+                  <TableColumn fx:id="colgenero" prefWidth="146.0" text="Gênero" />
+                  <TableColumn fx:id="colpreco" prefWidth="91.0" text="Preço" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>
