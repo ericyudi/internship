@@ -7,3 +7,6 @@ configuração.
 Conclua a Instalação: Aguarde até que o processo de instalação
 seja concluído.
 
+Run the Installer: Double-click the AppVMC icon to start the installation process.
+Follow the Installation Wizard Instructions: The installer should open an installation wizard. Follow the on-screen instructions, such as accepting the terms of service, choosing the installation directory, and selecting configuration options.
+Complete the Installation: Wait until the installation process is complete.
